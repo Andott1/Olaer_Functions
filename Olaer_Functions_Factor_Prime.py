@@ -1,4 +1,5 @@
-def intro():
+# This modified code improves and combines the previous 2 activities in CS112: Computer Programming 1.
+def intro():  # Prints the introduction, options to choose from, and prompt the user to choose an option.
     print("\n------ CS112: COMPUTER PROGRAMMING 1 ------\n"
           "Created by: Kurt Andre L. Olaer\n")
     print("Type [0] to terminate program\n"
@@ -23,7 +24,7 @@ def intro():
         exit()
 
 
-def input_again():
+def input_again():  # Prompt the user to choose an option after completing either one of the intro() options.
     while True:
         try:
             response = int(input("[0] To terminate program, [1] To input again, [2] To change function.\n"
@@ -45,11 +46,11 @@ def input_again():
         exit()
 
 
-def opt1_input():
+def opt1_input():  # Prompt user to enter an integer for option 1 in intro().
     while True:
         try:
             num = int(input("Enter an integer greater than or equal to 2: "))
-            if num >= 2:  # Check if the number is less than or greater than 2
+            if num >= 2:
                 return num
             elif num == 0:
                 print("\n- Program Terminated -")
@@ -60,14 +61,14 @@ def opt1_input():
             print("Invalid input. Please enter a valid integer.\n")
 
 
-def opt1_factor(n):
+def opt1_factor(n):  # Find the smallest factor of the given integer.
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return i
     return n
 
 
-def opt1():
+def opt1():  # Main flow of option 1 in intro().
     while True:
         opt1_number = opt1_input()
         opt1_result = opt1_factor(opt1_number)
@@ -75,7 +76,7 @@ def opt1():
         input_again()
 
 
-def opt2_input():
+def opt2_input():  # Prompt user to enter 2 integers (start, end) for option 2 in intro().
     while True:
         try:
             while True:
@@ -101,7 +102,7 @@ def opt2_input():
             print("Invalid input. Please enter a valid integer.\n")
 
 
-def opt2_check_primes(value):  # Check if the number is a prime number
+def opt2_check_primes(value):  # Check if the integer is a prime number.
     if value < 2:
         return False
     for i in range(2, int(value ** 0.5) + 1):
@@ -110,7 +111,8 @@ def opt2_check_primes(value):  # Check if the number is a prime number
     return True
 
 
-def opt2_primes(start_value, end_value, primes_per_line=10, width=4):
+def opt2_primes(start_value, end_value, primes_per_line=10, width=4):  # Add the prime numbers to list, -
+    # then print the list, and format it to 10 primes per line, and right-align the primes.
     primes_list = []
     for num in range(start_value, end_value + 1):
         if opt2_check_primes(num):
@@ -126,12 +128,12 @@ def opt2_primes(start_value, end_value, primes_per_line=10, width=4):
     print("")
 
 
-def opt2():
+def opt2():  # Main flow of option 2 in intro().
     while True:
         start_value, end_value = opt2_input()
         opt2_primes(start_value, end_value, primes_per_line=10, width=4)
         input_again()
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # Call the intro() only if the script is run as the main program.
     intro()
